@@ -1,44 +1,11 @@
-import 'package:ex2/ui/screens/temperature_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:w6_practice/data/profile_data.dart';
 
-import 'ui/screens/welcome_screen.dart';
-
-class TemperatureApp extends StatefulWidget {
-  const TemperatureApp({super.key});
-
-  @override
-  State<TemperatureApp> createState() {
-    return _TemperatureAppState();
-  }
-}
-
-class _TemperatureAppState extends State<TemperatureApp> {
-  bool isFirstScreen = true;
-  void changeScreen() {
-    setState(() {
-      isFirstScreen = false;
-    });
-  }
-  Widget getScreen()=>isFirstScreen?WelcomeScreen(callback: changeScreen):TemperatureScreen();
-  @override
-  Widget build(context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0xff16C062), Color(0xff00BCDC)],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-          ),
-          child:getScreen(),
-        ),
-      ),
-    );
-  }
-}
-
+import 'ui/screens/profile.dart';
+ 
 void main() {
-  runApp(const TemperatureApp());
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: ProfileApp(profileData:ronanProfile ,),
+  ));
 }
